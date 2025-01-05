@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+    <h2>Login Form</h2>
+    <form action="" id="Login">
+        <label for="usernamelgin">Username</label>
+        <input type="text" id="usernamelgin" required placeholder="enter user name here"><br> <br>
+        <label for="passwordlgin">Password</label>
+        <input type="password" id="passwordlgin" required placeholder="enter your password here"> <br> <br>
+        <input type="submit" value="button">
+    </form>
+
+    <script>
+        document.getElementById("Login").addEventListener("submit",function (event) {
+            event.preventDefault();
+           
+            
+           let lgname=document.getElementById("usernamelgin").value.trim();
+           let lgpassword=document.getElementById("passwordlgin").value.trim();
+
+           const lgnname=localStorage.getItem("name");
+           const lgnpswd=localStorage.getItem("pswd");
+           let isLogin=true;
+
+           if(lgname!==lgnname){
+            document.getElementById("nameError").textContent="enter user name correctly";
+            isLogin=false;
+           }
+           if(lgnpswd!==lgnpswd){
+            document.getElementById("pswdError").textContent="enter wrong password";
+            isLogin=false;
+           }
+           if(isLogin){
+            alert("Login successfully");
+            window.location.href="https://www.youtube.com/";
+           }
+        })
+    </script>
+</body>
+</html>
